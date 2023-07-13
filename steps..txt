@@ -1,0 +1,102 @@
+mkdir client
+
+mkdir api (for strapi)
+
+cd client
+
+npx create-react-app .
+
+cleanup all the files in src folder except index.js and App.js
+
+npm i react-router-dom
+
+In src folder > create 3 new folders named
+
+    Home, Products, Product
+
+In Home > Home.jsx
+
+In Products > Products.jsx
+
+In Product > Product.jsx
+
+And write rfc on each page
+
+
+
+Now goto App.js and write import { createBrowserRouter, RouterProvider } from "react-router-dom"; 
+
+Use RouterProvider in App.js Like below
+
+    
+        function App() {
+            return (
+                <div>
+                <RouterProvider router={router} />
+                </div>
+            );
+        }
+
+Import Home, Products, Product Pages in App.js
+
+Now create router using createBrowserRouter
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home />,
+        },
+        {
+            path: "/products/:id",  // :id is category id
+            element: <Products />,
+        },
+        {
+            path: "/product/:id",   // product id
+            element: <Product />,
+        },
+    ]);
+
+Create Components folder in src and In Components create Navbar and Footer folders.
+
+In Navbar folder > Navbar.jsx
+
+In Footer folder > Footer.jsx
+
+
+Navbar and Footer will common in all pages. So, what we gonna do is Using "Outlet" from react-router-dom. Import Outlet
+
+Create Layout 
+
+
+    const Layout = () => {
+        return (
+            <div className="app">
+            <Navbar />
+            <Outlet />
+            <Footer />
+            </div>
+        );
+    };
+
+Now we have to give this Layout to first element and give children as all these routes
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Layout />,
+            children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/products/:id",
+                element: <Products />,
+            },
+            {
+                path: "/product/:id",
+                element: <Product />,
+            },
+            ],
+        },
+    ]);
