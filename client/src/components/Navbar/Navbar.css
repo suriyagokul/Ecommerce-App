@@ -1,0 +1,18 @@
+.left {
+  gap: 25px;
+}
+
+.right {
+  gap: 25px;
+}
+
+.icons {
+  gap: 15px;
+  cursor: pointer;
+  color: gray;
+}
+
+.center {
+  font-size: 24px;
+}
+

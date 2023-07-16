@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins";
+}
+
+.link {
+  @apply text-sky-500;
+}
+
+.link:hover {
+  @apply text-sky-600;
+}
+
+.title:hover {
+  @apply text-cyan-600;
+}

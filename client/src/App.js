@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 
 const Layout = () => {
   return (
-    <div className="app">
+    <div className="app h-[100vh]">
       <Navbar />
       <Outlet />
       <Footer />
