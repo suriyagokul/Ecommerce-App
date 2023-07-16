@@ -102,4 +102,59 @@ Now we have to give this Layout to first element and give children as all these 
     ]);
 
 
-Creating Navbar 
+Creating Navbar, Footer, Product, Products, Cart, Slider, Card Components
+
+Goto api folder and install strapi
+
+npx create-strapi-app@latest .
+
+    If you choose quickstart it will use sqlite db.
+
+    Click on quickstart
+
+
+It will Open Strapi-admin page you have to signup with credentials
+
+Then Opens Admin Panel --> Click on Content Type Builder --> User Collection is there by default --> Click on New Collection Type 
+
+Give Collection name as product --> It will take as plural
+
+Like /api/products
+
+Create Category, SubCategory collections also 
+
+And Insert content Using Content Manager
+
+Goto Client folder and create .env file
+
+Create API token from strapi settings
+
+Copy api token and paste it in .env with prefix REACT_APP EX: REACT_APP_API_TOKEN
+
+Copy Strapi baseurl i.e http://localhost:1337/api and paste it in .env as REACT_APP_APP_URL
+
+Now Install axios in client folder
+
+We have to request our strapi url with axios
+
+    // To GET PRODUCTS  
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const productData = await axios.get(
+            process.env.REACT_APP_API_URL + "/products",
+            {
+                headers: {
+                Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+                },
+            }
+            );
+            console.log(productData);
+        } catch (error) {
+            console.log(error);
+        }
+        };
+        fetchData();
+    }, []);
+
+** Don't forgot to give space after bearer in Authorization **

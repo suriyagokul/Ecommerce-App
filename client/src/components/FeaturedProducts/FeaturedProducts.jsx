@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Card from "../Card/Card";
 import "./FeaturedProducts.css";
 
@@ -42,6 +43,27 @@ export const data = [
 ];
 
 const FeaturedProducts = ({ type }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const productData = await axios.get(
+          process.env.REACT_APP_API_URL + "/products",
+          {
+            headers: {
+              Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+            },
+          }
+        );
+        console.log(productData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="featuredProducts mt-[50px] mb-[100px] mx-[200px]">
       <div
