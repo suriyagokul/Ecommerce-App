@@ -5,6 +5,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useSelector } from "react-redux";
 import Cart from "../Cart/Cart";
 import "./Navbar.css";
 import "../../index.css";
@@ -13,6 +14,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const openRef = useRef(null);
+
+  const products = useSelector((state) => state.cart.products);
 
   // close cart component when we click outside of it
   useEffect(() => {
@@ -94,7 +97,7 @@ export default function Navbar() {
               {open && <Cart />}
               <ShoppingCartOutlinedIcon />
               <span className="bg-sky-500 rounded-lg px-1 absolute top-[-10px] right-[-10px] text-white">
-                0
+                {products?.length}
               </span>
             </div>
           </div>

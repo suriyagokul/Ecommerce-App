@@ -81,7 +81,7 @@ export default function Products() {
               value="asc"
               className="cursor-pointer"
               onChange={() => setSort("asc")}
-              // checked
+              checked
             />
             <label htmlFor="asc">Price (Lowest first)</label>
           </div>
