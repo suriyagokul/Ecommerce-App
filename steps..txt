@@ -158,3 +158,17 @@ We have to request our strapi url with axios
     }, []);
 
 ** Don't forgot to give space after bearer in Authorization **
+
+** Must Add Cors Policy in api/config/middlewares.js as below
+
+        Cut the line of having cors and paste ---> 
+
+             {
+                name: "strapi::cors",
+                config: {
+                enabled: true,
+                headers: "*",
+                origin: ["http://localhost:3000", "http://example2"],
+                },
+             },
+**

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const data = [
   {
-    id: 1,
+    id: 2,
     img1: "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Long Sleeve Graphic T-shirt",
     isNew: true,
@@ -12,7 +12,7 @@ export const data = [
     category: "Men",
   },
   {
-    id: 2,
+    id: 3,
     img1: "https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "White Floral Lace",
     isNew: true,
@@ -21,7 +21,7 @@ export const data = [
     category: "New Season",
   },
   {
-    id: 3,
+    id: 4,
     img1: "https://images.pexels.com/photos/1721558/pexels-photo-1721558.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "White Sleveless",
     isNew: true,
@@ -31,7 +31,7 @@ export const data = [
   },
 
   {
-    id: 4,
+    id: 5,
     img1: "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "White Sleveless",
     isNew: true,
@@ -40,7 +40,7 @@ export const data = [
     category: "Accessories",
   },
   {
-    id: 5,
+    id: 1,
     img1: "https://images.pexels.com/photos/17500761/pexels-photo-17500761/free-photo-of-young-woman-in-red-beret-and-sunglasses-buttoning-her-black-pea-coat.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "White Sleveless",
     isNew: true,
