@@ -113,7 +113,14 @@ npx create-strapi-app@latest .
     Click on quickstart
 
 
-It will Open Strapi-admin page you have to signup with credentials
+It will Open Strapi-admin page you have to signup with credential
+
+** If you want to open admin panel later on 
+
+    Goto cmd api folder and type
+
+    npm run develop
+ **
 
 Then Opens Admin Panel --> Click on Content Type Builder --> User Collection is there by default --> Click on New Collection Type 
 
@@ -172,3 +179,5 @@ We have to request our strapi url with axios
                 },
              },
 **
+
+To Persist data in redux store after refresh also, then we can use redux persist library

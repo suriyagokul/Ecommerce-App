@@ -1,7 +1,8 @@
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { ListItem } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, resetCart } from "../../redux/cartReducer";
+import { loadStripe } from "@stripe/stripe-js";
+import { makeRequest } from "../../axiosInstance/makeRequest";
 import "./Cart.css";
 
 const Cart = () => {
@@ -15,6 +16,24 @@ const Cart = () => {
       total += item.quantity * item.price;
     });
     return total.toFixed(2);
+  };
+
+  const stripePromise = loadStripe(
+    "pk_test_51NUrvGSJXrgeqj0WdpoyjngTpm2Qo82IzoXYTnzjRU7NhGexCUrr7GGRhNenAyhSFy0r3RM72r8Bjw0mCCeMb6lt007Aocjv9O"
+  );
+
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makeRequest.post("/orders", {
+        products,
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -47,7 +66,10 @@ const Cart = () => {
         <span>$ {total()}</span>
       </div>
       <div className="flex flex-col">
-        <button className="bg-blue-500 mt-6 mb-5 text-white px-3 py-1 font-bold hover:bg-blue-600">
+        <button
+          className="bg-blue-500 mt-6 mb-5 text-white px-3 py-1 font-bold hover:bg-blue-600"
+          onClick={handlePayment}
+        >
           PROCEED TO CHECKOUT
         </button>
         <button

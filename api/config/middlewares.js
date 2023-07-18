@@ -7,7 +7,7 @@ module.exports = [
     config: {
       enabled: true,
       headers: "*",
-      origin: ["http://localhost:3000", "http://example2"],
+      origin: ["http://localhost:3000", "http://localhost:1337"],
     },
   },
   "strapi::logger",
