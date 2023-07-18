@@ -11,6 +11,7 @@ module.exports = [
         "http://localhost:3000",
         "http://localhost:1337",
         "https://shopify-ovpvr.ondigitalocean.app",
+        "https://fastbuy.vercel.app",
       ],
     },
   },
